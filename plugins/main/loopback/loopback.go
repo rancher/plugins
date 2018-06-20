@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package loopback
 
 import (
 	"encoding/json"
@@ -172,7 +172,7 @@ func cmdDel(args *skel.CmdArgs) error {
 	return nil
 }
 
-func main() {
+func Main() {
 	skel.PluginMainFuncs(skel.CNIFuncs{
 		Add:   cmdAdd,
 		Check: cmdCheck,

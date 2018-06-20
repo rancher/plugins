@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package hostlocal
 
 import (
 	"errors"
@@ -29,7 +29,7 @@ import (
 	"github.com/containernetworking/plugins/plugins/ipam/host-local/backend/disk"
 )
 
-func main() {
+func Main() {
 	skel.PluginMainFuncs(skel.CNIFuncs{
 		Add:   cmdAdd,
 		Check: cmdCheck,
