@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package bandwidth
 
 import (
 	"encoding/json"
@@ -239,7 +239,7 @@ func cmdDel(args *skel.CmdArgs) error {
 	return TeardownIfb(ifbDeviceName)
 }
 
-func main() {
+func Main() {
 	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.VersionsStartingFrom("0.3.0"), bv.BuildString("bandwidth"))
 }
 

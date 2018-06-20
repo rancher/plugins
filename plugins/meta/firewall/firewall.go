@@ -15,7 +15,7 @@
 // This is a "meta-plugin". It reads in its own netconf, it does not create
 // any network interface but just changes the network sysctl.
 
-package main
+package firewall
 
 import (
 	"encoding/json"
@@ -178,7 +178,7 @@ func cmdDel(args *skel.CmdArgs) error {
 	return teardownIngressPolicy(conf)
 }
 
-func main() {
+func Main() {
 	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.VersionsStartingFrom("0.4.0"), bv.BuildString("firewall"))
 }
 

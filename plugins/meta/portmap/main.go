@@ -23,7 +23,7 @@
 // of the actual host port. If there is a service on the host, it will have all
 // its traffic captured by the container. If another container also claims a given
 // port, it will caputure the traffic - it is last-write-wins.
-package main
+package portmap
 
 import (
 	"encoding/json"
@@ -133,7 +133,7 @@ func cmdDel(args *skel.CmdArgs) error {
 	return unforwardPorts(netConf)
 }
 
-func main() {
+func Main() {
 	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.All, bv.BuildString("portmap"))
 }
 
