@@ -23,7 +23,7 @@ jobs:
       - uses: golangci/golangci-lint-action@v6
         with:
           version: v1.55.2
-          args: -v
+          args: -v --timeout=5m
           skip-cache: true
   build:
     name: Build all linux architectures
@@ -43,52 +43,3 @@ jobs:
             GOARCH=$arch ./build_linux.sh
             rm bin/*
           done
-  test-linux:
-    name: Run tests on Linux amd64
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install kernel module
-        run: |
-          sudo apt-get update
-          sudo apt-get install linux-modules-extra-$(uname -r)
-      - name: Install nftables
-        run: sudo apt-get install nftables
-      - uses: actions/checkout@v4
-      - name: setup go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-      - name: Set up Go for root
-        run: |
-          sudo ln -sf `which go` `sudo which go` || true
-          sudo go version
-
-      - name: Install test binaries
-        run: |
-          go install github.com/containernetworking/cni/cnitool@latest
-          go install github.com/mattn/goveralls@latest
-          go install github.com/modocache/gover@latest
-
-      - name: test
-        run: PATH=$PATH:$(go env GOPATH)/bin COVERALLS=1 ./test_linux.sh
-
-      - name: Send coverage to coveralls
-        env:
-          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PATH=$PATH:$(go env GOPATH)/bin
-          gover
-          goveralls -coverprofile=gover.coverprofile -service=github
-  test-win:
-    name: Build and run tests on Windows
-    needs: build
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: setup go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-      - name: test
-        run: bash ./test_windows.sh
