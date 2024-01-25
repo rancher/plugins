@@ -16,7 +16,6 @@ import (
 	hostlocal "github.com/containernetworking/plugins/plugins/ipam/host-local"
 	"github.com/containernetworking/plugins/plugins/main/bridge"
 	"github.com/containernetworking/plugins/plugins/main/loopback"
-	"github.com/containernetworking/plugins/plugins/main/macvlan"
 	"github.com/containernetworking/plugins/plugins/meta/bandwidth"
 	"github.com/containernetworking/plugins/plugins/meta/firewall"
 	"github.com/containernetworking/plugins/plugins/meta/flannel"
@@ -31,7 +30,6 @@ func main() {
 	reexec.Register("flannel", flannel.Main)
 	reexec.Register("host-local", hostlocal.Main)
 	reexec.Register("loopback", loopback.Main)
-	reexec.Register("macvlan", macvlan.Main)
 	reexec.Register("portmap", portmap.Main)
 	if !reexec.Init() {
 		_, _ = fmt.Fprintln(os.Stderr, bv.BuildString("plugins"))

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package macvlan
+package main
 
 import (
 	"encoding/json"
@@ -426,7 +426,7 @@ func cmdDel(args *skel.CmdArgs) error {
 	return err
 }
 
-func Main() {
+func main() {
 	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.All, bv.BuildString("macvlan"))
 }
 
