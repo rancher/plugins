@@ -77,19 +77,6 @@ github.com/coreos/go-iptables/iptables
 # github.com/coreos/go-systemd/v22 v22.5.0
 ## explicit; go 1.12
 github.com/coreos/go-systemd/v22/activation
-# github.com/d2g/dhcp4 v0.0.0-20170904100407-a1d1b6c41b1c
-## explicit
-github.com/d2g/dhcp4
-# github.com/d2g/dhcp4client v1.0.0
-## explicit
-github.com/d2g/dhcp4client
-# github.com/d2g/dhcp4server v0.0.0-20181031114812-7d4a0a7f59a5
-## explicit
-github.com/d2g/dhcp4server
-github.com/d2g/dhcp4server/leasepool
-github.com/d2g/dhcp4server/leasepool/memorypool
-# github.com/d2g/hardwareaddr v0.0.0-20190221164911-e7d9fbe030e4
-## explicit
 # github.com/docker/docker v27.1.1+incompatible
 ## explicit
 github.com/docker/docker/pkg/reexec
@@ -147,8 +134,6 @@ github.com/networkplumbing/go-nft/nft
 github.com/networkplumbing/go-nft/nft/config
 github.com/networkplumbing/go-nft/nft/exec
 github.com/networkplumbing/go-nft/nft/schema
-# github.com/onsi/ginkgo/v2 v2.23.4
-## explicit; go 1.23.0
 # github.com/nxadm/tail v1.4.8
 ## explicit; go 1.13
 github.com/nxadm/tail
@@ -178,8 +163,8 @@ github.com/onsi/ginkgo/reporters/stenographer
 github.com/onsi/ginkgo/reporters/stenographer/support/go-colorable
 github.com/onsi/ginkgo/reporters/stenographer/support/go-isatty
 github.com/onsi/ginkgo/types
-# github.com/onsi/ginkgo/v2 v2.20.2
-## explicit; go 1.22
+# github.com/onsi/ginkgo/v2 v2.23.4
+## explicit; go 1.23.0
 github.com/onsi/ginkgo/v2
 github.com/onsi/ginkgo/v2/config
 github.com/onsi/ginkgo/v2/formatter
